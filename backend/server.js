@@ -17,22 +17,7 @@ app.get("/", (req, res) => {
   res.json({ message: "DishDash API is running! 🍽️" });
 });
 
-app.get("/api/recipes", (req, res) => {
-  res.json([
-    {
-      id: 1,
-      name: "Pasta Aglio e Olio",
-      time: 90,
-      steps: ["Boil water", "Cook pasta", "Add sauce"],
-    },
-    {
-      id: 2,
-      name: "Street Tacos",
-      time: 75,
-      steps: ["Season beef", "Cook mince", "Warm tortillas", "Assemble"],
-    },
-  ]);
-});
+app.use("/api/recipes", recipeRoutes);
 
 // start listening for requests
 const PORT = process.env.PORT || 3000;
