@@ -4,22 +4,23 @@ require("dotenv").config();
 // import express
 const express = require("express");
 const cors = require("cors");
+const recipeRoutes = require("./routes/recipe"); // ← ADD THIS LINE
 
-// create the app — like Flask's app = Flask(__name__)
+// create the app
 const app = express();
 
-// middleware — runs on every request
-app.use(cors()); // allow frontend to talk to us
-app.use(express.json()); // allow JSON data in request bodies
+// middleware
+app.use(cors());
+app.use(express.json());
 
-// our first route
+// routes
 app.get("/", (req, res) => {
   res.json({ message: "DishDash API is running! 🍽️" });
 });
 
 app.use("/api/recipes", recipeRoutes);
 
-// start listening for requests
+// start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
