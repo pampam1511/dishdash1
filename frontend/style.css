@@ -1,0 +1,36 @@
+body {
+  background: #fdf6ec;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 280px;
+  width: 100%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* ← updated shadow */
+}
+
+.recipe-name {
+  color: #4a2c1a;
+}
+
+.recipe-meta {
+  font-size: 13px;
+  color: #8c7b6e;
+}
+
+.start-btn {
+  background: #c9521c;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  border: none;
+}
+
+.emoji {
+  font-size: 40px;
+}
