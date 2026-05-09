@@ -4,7 +4,8 @@ require("dotenv").config();
 // import express
 const express = require("express");
 const cors = require("cors");
-const recipeRoutes = require("./routes/recipe"); // ← ADD THIS LINE
+const recipeRoutes = require("./routes/recipe");
+const authRoutes = require("./routes/auth");
 
 // create the app
 const app = express();
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/recipes", recipeRoutes);
+app.use("/api/auth", authRoutes);
 
 // start server
 const PORT = process.env.PORT || 3000;
