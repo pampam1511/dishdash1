@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dish Dash</title>
-        <h1>Beat the clock!!!</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DishDash</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page welcome-page">
+      <div class="welcome-wrap">
+        <h1 class="welcome-title">DishDash</h1>
+        <p class="welcome-sub">Beat the clock!!!!</p>
 
-    </head>
+        <div class="auth-tabs">
+          <button class="tab-btn active" onclick="switchTab('login')">
+            Login
+          </button>
+          <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+
+        <div class="auth-form" id="form-login">
+          <input
+            class="input"
+            id="login-email"
+            type="email"
+            placeholder="Email"
+          />
+          <input
+            class="input"
+            id="login-password"
+            type="password"
+            placeholder="Password"
+          />
+          <button class="btn btn-primary" onclick="handleLogin()">Login</button>
+          <p class="auth-error" id="login-error"></p>
+        </div>
+
+        <div class="auth-form hidden" id="form-signup">
+          <input
+            class="input"
+            id="signup-username"
+            type="text"
+            placeholder="Username"
+          />
+          <input
+            class="input"
+            id="signup-email"
+            type="email"
+            placeholder="Email"
+          />
+          <input
+            class="input"
+            id="signup-password"
+            type="password"
+            placeholder="Password"
+          />
+          <button class="btn btn-primary" onclick="handleSignup()">
+            Create Account
+          </button>
+          <p class="auth-error" id="signup-error"></p>
+        </div>
+
+        <button
+          class="btn btn-ghost btn-guest"
+          style="margin-top: 1rem"
+          onclick="guestMode()"
+        >
+          Continue as Guest →
+        </button>
+      </div>
+    </div>
+    <script src="auth.js"></script>
+  </body>
 </html>
