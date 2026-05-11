@@ -1,4 +1,4 @@
-const API = "http://localhost:3000";
+const API = "https://dishdash-backend-7dig.onrender.com";
 async function apiFetch(path, options = {}) {
   const headers = {
     "Content-Type": "application/json",
