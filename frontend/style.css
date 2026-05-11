@@ -766,6 +766,42 @@ body {
     opacity: 0.2;
   }
 }
+/* ── INGREDIENTS ── */
+.recipe-ingredients {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(92, 26, 26, 0.1);
+}
+
+.ingredients-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 13px;
+  color: var(--maroon);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ingredients-text {
+  font-size: 12px;
+  color: var(--ash);
+  font-family: "DM Mono", monospace;
+  line-height: 1.6;
+}
+
+.ingredients-panel {
+  background: white;
+  border: 2px solid var(--maroon);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.ingredients-panel .ingredients-title {
+  margin-bottom: 0.5rem;
+}
 /* ── ANIMATIONS ── */
 @keyframes flame {
   0%,
