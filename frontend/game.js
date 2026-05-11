@@ -20,5 +20,15 @@ function updatedTimer(){
     if (timeLeft > recipe.time * 0.6) el.style.color = #a5fda2;
     else if (timeLeft > recipe.time * 0.3) el.style.color = #FFE28A;
     else el.style.color = #F87C63;
+}
+function tick() {
+    if (paused) return;
+    timeLeft--;
+    updatedTimer();
+    updateProgress();
 
+    if (timeLeft <= 0){
+        clearInterval(timerInterval);
+        goToResult(false);
+    }
 }
