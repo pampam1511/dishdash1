@@ -1,10 +1,17 @@
 const Recipe = require("../models/recipe");
 
 const recipeController = {
-  // GET /api/recipes
+  // GET /api/recipes or GET /api/recipes?cuisine_id=1
   getAll: async (req, res) => {
     try {
-      const recipes = await Recipe.getAll();
+      // check if cuisine_id was passed in the URL
+      // req.query reads anything after the ? in the URL
+      const { cuisine_id } = req.query;
+
+      const recipes = cuisine_id
+        ? await Recipe.getByCuisine(cuisine_id) // filter by cuisine
+        : await Recipe.getAll(); // return all
+
       res.json(recipes);
     } catch (err) {
       console.error(err);
@@ -12,7 +19,6 @@ const recipeController = {
     }
   },
 
-  // GET /api/recipes/:id
   getById: async (req, res) => {
     try {
       const recipe = await Recipe.getById(req.params.id);
