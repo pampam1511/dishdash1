@@ -12,12 +12,20 @@ document.getElementById("game-title").textContent = recipe.name;
 document.getElementById("game-meta").textContent =
   `${recipe.cuisine} · ${recipe.difficulty}`;
 
+const ingredientsPanel = document.getElementById("ingredients-panel");
+if (recipe.ingredients && ingredientsPanel) {
+  ingredientsPanel.innerHTML = `
+    <div class="ingredients-title">📋 Ingredients</div>
+    <div class="ingredients-text">${recipe.ingredients}</div>
+  `;
+  ingredientsPanel.classList.remove("hidden");
+}
+
 function updateTimer() {
   const m = Math.floor(timeLeft / 60);
   const s = timeLeft % 60;
   const el = document.getElementById("timer");
   el.textContent = `${m}:${String(s).padStart(2, "0")}`;
-
   const stepTime = recipe.steps[currentStep].time;
   if (timeLeft > stepTime * 0.6) el.style.color = "#4A7C2F";
   else if (timeLeft > stepTime * 0.3) el.style.color = "#D4A017";
@@ -28,7 +36,6 @@ function tick() {
   if (paused) return;
   timeLeft--;
   updateTimer();
-
   if (timeLeft <= 0) {
     score = Math.max(0, score - 50);
     document.getElementById("score-display").textContent = score + " pts";
@@ -45,7 +52,6 @@ function startStepTimer() {
 
 function moveToNextStep() {
   clearInterval(timerInterval);
-
   if (currentStep < recipe.steps.length - 1) {
     currentStep++;
     startStepTimer();
@@ -65,22 +71,11 @@ function updateProgress() {
 function renderSteps() {
   const list = document.getElementById("steps-list");
   list.innerHTML = "";
-  const ingredientsPanel = document.getElementById("ingredients-panel");
-  if (r.ingredients && ingredientsPanel) {
-    ingredientsPanel.innerHTML = `
-    <div class="ingredients-title">Ingredients</div>
-    <div class="ingredients-text">${recipe.ingredients}</div>
-  `;
-    ingredientsPanel.classList.remove("hidden");
-  }
-
   recipe.steps.forEach((step, i) => {
     const div = document.createElement("div");
-
     if (i < currentStep) div.className = "step-item done";
     else if (i === currentStep) div.className = "step-item active";
     else div.className = "step-item";
-
     div.innerHTML = `
       <div class="step-num">${i < currentStep ? "✓" : i + 1}</div>
       <div class="step-content">
@@ -88,18 +83,15 @@ function renderSteps() {
         <div class="step-time">⏱ ${step.time}s</div>
       </div>
     `;
-
     list.appendChild(div);
   });
 }
 
 document.getElementById("btn-done").addEventListener("click", () => {
   clearInterval(timerInterval);
-
   const pointsEarned = 100 + Math.floor(timeLeft * 2);
   score += pointsEarned;
   document.getElementById("score-display").textContent = score + " pts";
-
   moveToNextStep();
 });
 
