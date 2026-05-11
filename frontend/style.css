@@ -1,36 +1,781 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap");
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── COLOURS ── */
+:root {
+  --yellow: #fefde8;
+  --maroon: #5c1a1a;
+  --maroon-light: #7a2222;
+  --white: #ffffff;
+  --ash: #8c7b6e;
+  --shadow: 0 4px 16px rgba(92, 26, 26, 0.2);
+}
+
+/* ── BODY ── */
 body {
-  background: #fdf6ec;
+  background: var(--yellow);
+  font-family: "DM Sans", sans-serif;
+  color: var(--maroon);
+  min-height: 100vh;
+}
+
+/* ── CHARACTERS ── */
+/* these position the character images on each page */
+.character {
+  position: absolute;
+  width: 180px;
+  object-fit: contain;
+}
+.character-top-right {
+  top: 0px;
+  /*transform: translateY(-50%);*/
+  right: 0px;
+  width: 220px;
+}
+.charactertop-right {
+  top: -20px;
+  /*transform: translateY(-50%);*/
+  right: 0px;
+  width: 100px;
+}
+.character-top-left {
+  top: 20px;
+  left: 20px;
+}
+.character-bottom-left {
+  bottom: -40px;
+  left: -30px;
+  width: 400px;
+}
+.character-bottom-right {
+  bottom: -200px;
+  right: -70px;
+  width: 550px;
+}
+
+/* ── WELCOME PAGE ── */
+.welcome-page {
+  min-height: 100vh;
+  background: var(--yellow);
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 40px;
+  overflow: hidden;
+}
+
+.welcome-content {
+  text-align: center;
+  z-index: 1;
+  /* make sure text stays left and doesn't overlap character */
+  /*max-width: 400px;*/
+}
+
+.welcome-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 80px;
+  color: var(--maroon);
+  margin-bottom: 0.5rem;
+  /* slight shadow makes it pop off the yellow */
+  text-shadow: 3px 3px 0px rgba(92, 26, 26, 0.15);
+}
+
+.welcome-sub {
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  color: var(--maroon);
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.welcome-btn {
+  background: var(--maroon);
+  color: var(--white);
+  border: none;
+  padding: 0.85rem 3rem;
+  border-radius: 50px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.welcome-btn:hover {
+  background: var(--maroon-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(92, 26, 26, 0.3);
+}
+
+/* ── CUISINES PAGE ── */
+.cuisines-page {
+  min-height: 100vh;
+  background: var(--yellow);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.cuisines-content {
+  /* centres the title and grid together */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.cuisines-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 48px;
+  color: var(--maroon);
+  margin-bottom: 0.25rem;
+  letter-spacing: 1px;
+}
+
+.cuisines-sub {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: var(--maroon);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ── CUISINE GRID ── */
+.cuisine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 400px;
+  .cuisine-card:nth-child(1) {
+    background: #8b1a1a;
+  }
+  .cuisine-card:nth-child(2) {
+    background: #8b1a1a;
+  }
+  .cuisine-card:nth-child(3) {
+    background: #6b1f1f;
+  }
+  .cuisine-card:nth-child(4) {
+    background: #6b1f1f;
+  }
+  .cuisine-card:nth-child(5) {
+    background: #3d0f0f;
+  }
+  .cuisine-card:nth-child(6) {
+    background: #3d0f0f;
+  }
+}
+
+.cuisine-card {
+  background: var(--maroon);
+  border-radius: 12px;
+  padding: 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  border: none;
+}
+.cuisine-card:hover {
+  background: var(--maroon-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.cuisine-flag {
+  font-size: 13px;
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "DM Mono", monospace;
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+.cuisine-name {
+  font-family: "Fredoka One", cursive;
+  font-size: 30px;
+  color: var(--white);
+}
+
+.cuisine-count {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Mono", monospace;
+  margin-top: 4px;
+}
+
+.loading {
+  color: var(--maroon);
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* ── SHARED PAGE LAYOUT ── */
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+/* ── TOP BAR ── */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(92, 26, 26, 0.1);
+}
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--maroon);
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  opacity: 0.6;
+}
+.back-btn:hover {
+  opacity: 1;
+}
+
+/* ── RECIPES PAGE ── */
+.recipes-page {
+  min-height: 100vh;
+  background: var(--yellow);
+  padding: 2rem;
+  padding-top: 3rem;
+}
+
+/* top bar with back button and title */
+.recipes-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--maroon);
+  position: relative;
+}
+
+.recipes-back-btn {
+  background: var(--maroon);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-family: "Fredoka One", cursive;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.recipes-back-btn:hover {
+  background: var(--maroon-light);
+}
+
+.recipes-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 36px;
+  color: var(--maroon);
+  letter-spacing: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ── RECIPE GRID ── */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .recipe-card {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 280px;
-  width: 100%;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* ← updated shadow */
+  background: var(--white);
+  border: 2.5px solid var(--maroon);
+  border-radius: 16px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  /* min height so empty cards look the same size */
+  min-height: 120px;
+}
+.recipe-card:hover {
+  background: var(--maroon);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.recipe-card:hover .recipe-name,
+.recipe-card:hover .recipe-meta {
+  color: white;
 }
 
 .recipe-name {
-  color: #4a2c1a;
+  font-family: "Fredoka One", cursive;
+  font-size: 17px;
+  color: var(--maroon);
+  margin-bottom: 0.4rem;
 }
 
 .recipe-meta {
-  font-size: 13px;
-  color: #8c7b6e;
+  font-size: 11px;
+  color: var(--ash);
+  font-family: "DM Mono", monospace;
+  margin-bottom: 0.5rem;
 }
 
-.start-btn {
-  background: #c9521c;
-  padding: 8px 16px;
-  border-radius: 6px;
+.diff-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-family: "DM Mono", monospace;
+}
+.diff-easy {
+  background: #eaf3de;
+  color: #3b6d11;
+}
+.diff-medium {
+  background: #faeeda;
+  color: #854f0b;
+}
+.diff-hard {
+  background: #faece7;
+  color: #993c1d;
+}
+
+.empty-msg {
+  color: var(--ash);
+  font-family: "DM Mono", monospace;
+  font-size: 13px;
+  grid-column: span 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ── GAME PAGE ── */
+.game-page {
+  min-height: 100vh;
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* the white card in the centre */
+.game-card {
+  background: white;
+  border: 2.5px solid var(--maroon);
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── GAME TOP BAR ── */
+.game-top-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1.5px solid rgba(92, 26, 26, 0.15);
+}
+
+.game-quit-btn {
+  background: var(--maroon);
   color: white;
   border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-family: "Fredoka One", cursive;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.game-quit-btn:hover {
+  background: var(--maroon-light);
 }
 
-.emoji {
-  font-size: 40px;
+.game-top-centre {
+  text-align: center;
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.game-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  color: var(--maroon);
+}
+
+.game-meta {
+  font-size: 12px;
+  color: var(--ash);
+  font-family: "DM Mono", monospace;
+  margin-top: 2px;
+}
+
+.score-display {
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  color: var(--maroon);
+  white-space: nowrap;
+}
+
+/* ── PROGRESS BAR + TIMER ── */
+.game-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.progress-bg {
+  flex: 1;
+  height: 12px;
+  background: rgba(92, 26, 26, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--maroon);
+  border-radius: 6px;
+  transition: width 0.3s;
+  width: 0%;
+}
+
+.game-timer {
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  color: var(--maroon);
+  min-width: 55px;
+  text-align: right;
+  transition: color 0.5s;
+}
+
+/* ── STEPS ── */
+.game-steps {
+  margin-bottom: 1.25rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(92, 26, 26, 0.07);
+}
+.step-item:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(92, 26, 26, 0.08);
+  color: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: "Fredoka One", cursive;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.step-item.active .step-num {
+  background: var(--maroon);
+  color: white;
+}
+.step-item.done .step-num {
+  background: #4a7c2f;
+  color: white;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-text {
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  color: var(--maroon);
+  line-height: 1.3;
+}
+.step-item.done .step-text {
+  text-decoration: line-through;
+  color: var(--ash);
+}
+.step-item.active .step-text {
+  color: var(--maroon);
+}
+
+.step-time {
+  font-size: 11px;
+  color: var(--ash);
+  font-family: "DM Mono", monospace;
+  margin-top: 2px;
+}
+
+/* ── GAME BUTTONS ── */
+.game-btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.game-btn-ghost {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 2px solid var(--maroon);
+  background: transparent;
+  color: var(--maroon);
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.game-btn-ghost:hover {
+  background: var(--maroon);
+  color: white;
+}
+
+.game-btn-primary {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--maroon);
+  color: white;
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.game-btn-primary:hover {
+  background: var(--maroon-light);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid;
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--maroon-light);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--maroon);
+  color: var(--maroon);
+}
+.btn-ghost:hover {
+  background: var(--maroon);
+  color: white;
+}
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+.btn-row .btn {
+  flex: 1;
+}
+/* ── RESULT PAGE ── */
+.result-page {
+  min-height: 100vh;
+  background: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ── RESULT CONTENT ── */
+.result-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
+}
+
+.result-headline {
+  font-family: "Fredoka One", cursive;
+  font-size: 48px;
+  color: var(--maroon);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.result-sub {
+  font-family: "Fredoka One", cursive;
+  font-size: 18px;
+  color: var(--maroon);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.result-score {
+  font-family: "Fredoka One", cursive;
+  font-size: 64px;
+  color: var(--maroon);
+  line-height: 1;
+}
+
+/* ── CHARACTER ── */
+.result-character {
+  width: 280px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+/* ── BUTTONS ── */
+.result-btns {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.result-btn-ghost {
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  border: 2px solid var(--maroon);
+  background: transparent;
+  color: var(--maroon);
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.result-btn-ghost:hover {
+  background: var(--maroon);
+  color: white;
+}
+
+.result-btn-primary {
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  border: none;
+  background: var(--maroon);
+  color: white;
+  font-family: "Fredoka One", cursive;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.result-btn-primary:hover {
+  background: var(--maroon-light);
+}
+
+/* ── CONFETTI ── */
+.confetti-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks pass through */
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confettiFall linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ── RAIN ── */
+.rain-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rain-drop {
+  position: absolute;
+  top: -50px;
+  width: 2px;
+  background: rgba(92, 26, 26, 0.3);
+  border-radius: 2px;
+  animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.2;
+  }
+}
+/* ── ANIMATIONS ── */
+@keyframes flame {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+}
+.hidden {
+  display: none;
 }
