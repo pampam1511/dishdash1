@@ -114,3 +114,11 @@ function goToResult(completed) {
 
   window.location.href = 'result.html';
 }
+
+
+renderSteps();
+updateTimer();
+updateProgress();
+
+
+timerInterval = setInterval(tick, 1000);
