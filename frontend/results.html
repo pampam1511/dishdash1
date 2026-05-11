@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DishDash — Result</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="result-page" id="result-page">
+      <div class="confetti-wrap" id="confetti-wrap"></div>
+
+      <div class="rain-wrap" id="rain-wrap"></div>
+
+      <div class="result-content">
+        <h1 class="result-headline" id="result-headline"></h1>
+        <p class="result-sub" id="result-sub"></p>
+        <div class="result-score" id="result-score"></div>
+      </div>
+
+      <img
+        src="images/celebration-pom.png"
+        alt="character"
+        class="result-character"
+        id="result-character"
+      />
+
+      <div class="result-btns">
+        <button
+          class="result-btn-ghost"
+          onclick="window.location.href = 'cuisines.html'"
+        >
+          ← Menu
+        </button>
+        <button class="result-btn-primary" onclick="retryRecipe()">
+          ↺ Try Again
+        </button>
+      </div>
+    </div>
+    <script src="api.js"></script>
+    <script src="result.js"></script>
+  </body>
+</html>
