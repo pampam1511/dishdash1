@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DishDash — Cook!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-page">
+      <img
+        src="images/eating-pom.png"
+        alt="character"
+        class="character character-bottom-left"
+      />
+      <div class="game-card">
+        <div class="game-top-bar">
+          <button class="game-quit-btn" onclick="quitGame()">✕ QUIT</button>
+          <div class="game-top-centre">
+            <div class="game-title" id="game-title"></div>
+            <div class="game-meta" id="game-meta"></div>
+          </div>
+          <div class="score-display" id="score-display">0 pts</div>
+        </div>
+
+        <div class="game-progress-row">
+          <div class="progress-bg">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="game-timer" id="timer">0:00</span>
+        </div>
+
+        <div class="game-steps" id="steps-list"></div>
+
+        <div class="game-btn-row">
+          <button class="game-btn-ghost" id="btn-pause">⏸ Pause</button>
+          <button class="game-btn-primary" id="btn-done">DONE!</button>
+        </div>
+      </div>
+    </div>
+    <script src="api.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
