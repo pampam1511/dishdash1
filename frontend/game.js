@@ -84,20 +84,33 @@ function completeStep(i) {
   }
 }
 
-
 document.getElementById('btn-pause').addEventListener('click', () => {
   paused = !paused; 
   document.getElementById('btn-pause').textContent = paused ? '▶ Resume' : '⏸ Pause';
 });
-
 
 document.getElementById('btn-done').addEventListener('click', () => {
   clearInterval(timerInterval);
   goToResult(stepsDone.every(Boolean));
 });
 
-
 function quitGame() {
   clearInterval(timerInterval); 
   window.location.href = 'recipes.html';
+}
+
+
+function goToResult(completed) {
+  const done = stepsDone.filter(Boolean).length;
+  const timeBonus = completed ? timeLeft * 2 : 0;
+  localStorage.setItem('result', JSON.stringify({
+    completed,
+    score:     score + timeBonus,
+    timeLeft,
+    done,
+    total:     recipe.steps.length,
+    recipeName: recipe.name
+  }));
+
+  window.location.href = 'result.html';
 }
