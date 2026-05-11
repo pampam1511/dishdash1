@@ -1,25 +1,33 @@
 const pool = require("./db");
 
 const Recipe = {
-  // get all recipes
   getAll: async () => {
-    const result = await pool.query("SELECT * FROM recipes");
+    const result = await pool.query(
+      "SELECT *, steps_json as steps FROM recipes ORDER BY name",
+    );
     return result.rows;
   },
 
-  // get one recipe by id
+  getByCuisine: async (cuisine_id) => {
+    const result = await pool.query(
+      "SELECT *, steps_json as steps FROM recipes WHERE cuisine_id = $1 ORDER BY name",
+      [cuisine_id],
+    );
+    return result.rows;
+  },
+
   getById: async (id) => {
-    const result = await pool.query("SELECT * FROM recipes WHERE id = $1", [
-      id,
-    ]);
+    const result = await pool.query(
+      "SELECT *, steps_json as steps FROM recipes WHERE id = $1",
+      [id],
+    );
     return result.rows[0];
   },
 
-  // create a new recipe
-  create: async (name, time, difficulty, cuisine, steps) => {
+  create: async (name, time, difficulty, cuisine, cuisine_id, steps) => {
     const result = await pool.query(
-      "INSERT INTO recipes (name, time, difficulty, cuisine, steps) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [name, time, difficulty, cuisine, steps],
+      "INSERT INTO recipes (name, time, difficulty, cuisine, cuisine_id, steps_json) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *",
+      [name, time, difficulty, cuisine, cuisine_id, JSON.stringify(steps)],
     );
     return result.rows[0];
   },
