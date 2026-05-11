@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/cuisines", cuisineRoutes);
 
 // start server
 const PORT = process.env.PORT || 3000;
