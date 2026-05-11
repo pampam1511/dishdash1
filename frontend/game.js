@@ -55,12 +55,11 @@ function moveToNextStep() {
     goToResult(true);
   }
 }
+
 function updateProgress() {
-  const done = currentStep;
-  const total = recipe.steps.length;
-  document.getElementById("progress-fill").style.width =
-    `${(done / total) * 100}%`;
-  document.getElementById("progress-text").textContent = `${done}/${total}`;
+  const stepTime = recipe.steps[currentStep].time;
+  const pct = (timeLeft / stepTime) * 100;
+  document.getElementById("progress-fill").style.width = `${pct}%`;
 }
 
 function renderSteps() {
