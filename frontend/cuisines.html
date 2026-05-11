@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DishDash — Choose Cuisine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cuisines-page">
+      <img
+        src="images/chef.png"
+        alt="chef character"
+        class="character character-top-left"
+      />
+
+      <div class="page-header">
+        <h2>Choose a Cuisine</h2>
+        <p>Pick your kitchen adventure</p>
+      </div>
+
+      <div class="cuisine-grid" id="cuisine-grid">
+        <div class="loading">Loading cuisines...</div>
+      </div>
+    </div>
+    <script src="api.js"></script>
+    <script src="cuisines.js"></script>
+  </body>
+</html>
