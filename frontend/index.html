@@ -11,65 +11,13 @@
       <div class="welcome-wrap">
         <h1 class="welcome-title">DishDash</h1>
         <p class="welcome-sub">Beat the clock!!!!</p>
-
-        <div class="auth-tabs">
-          <button class="tab-btn active" onclick="switchTab('login')">
-            Login
-          </button>
-          <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
-        </div>
-
-        <div class="auth-form" id="form-login">
-          <input
-            class="input"
-            id="login-email"
-            type="email"
-            placeholder="Email"
-          />
-          <input
-            class="input"
-            id="login-password"
-            type="password"
-            placeholder="Password"
-          />
-          <button class="btn btn-primary" onclick="handleLogin()">Login</button>
-          <p class="auth-error" id="login-error"></p>
-        </div>
-
-        <div class="auth-form hidden" id="form-signup">
-          <input
-            class="input"
-            id="signup-username"
-            type="text"
-            placeholder="Username"
-          />
-          <input
-            class="input"
-            id="signup-email"
-            type="email"
-            placeholder="Email"
-          />
-          <input
-            class="input"
-            id="signup-password"
-            type="password"
-            placeholder="Password"
-          />
-          <button class="btn btn-primary" onclick="handleSignup()">
-            Create Account
-          </button>
-          <p class="auth-error" id="signup-error"></p>
-        </div>
-
         <button
-          class="btn btn-ghost btn-guest"
-          style="margin-top: 1rem"
-          onclick="guestMode()"
+          class="btn btn-primary welcome-btn"
+          onclick="window.location.href = 'cuisines.html'"
         >
-          Continue as Guest →
+          Begin →
         </button>
       </div>
     </div>
-    <script src="auth.js"></script>
   </body>
 </html>
