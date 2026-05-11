@@ -6,3 +6,7 @@ let timerInterval = null;
 let stepsDone = new Array(recipe.steps.length).fill(false);
 let score = 0;
 let paused = false;
+
+document.getElementById("game-title").textContent = recipe.name;
+document.getElementById("game-meta").textContent =
+  `${recipe.cuisine} · ${recipe.difficulty}`;
