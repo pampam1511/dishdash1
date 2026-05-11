@@ -6,7 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const recipeRoutes = require("./routes/recipe");
 const authRoutes = require("./routes/auth");
-
+const cuisineRoutes = require("./routes/cuisine");
 // create the app
 const app = express();
 
