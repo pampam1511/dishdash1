@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DishDash — Recipes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="recipes-page">
+      <div class="recipes-top-bar">
+        <button
+          class="recipes-back-btn"
+          onclick="window.location.href = 'cuisines.html'"
+        >
+          Back
+        </button>
+        <div class="recipes-title" id="cuisine-title"></div>
+      </div>
+
+      <div class="recipe-grid" id="recipe-list">
+        <div class="loading">Loading recipes...</div>
+      </div>
+    </div>
+    <script src="api.js"></script>
+    <script src="recipes.js"></script>
+  </body>
+</html>
