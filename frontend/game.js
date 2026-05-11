@@ -32,3 +32,10 @@ function tick() {
         goToResult(false);
     }
 }
+
+function updateProgress(){
+    const done = stepsDone.filter(Boolean).length;
+    const total = recipe.steps.length;
+    document.getElementById('progress-fill').style.width= `${(done / total) * 100}%`;
+    document.getElementById('progress-text').textContent = `${done}/${total}`;
+}
