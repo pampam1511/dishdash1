@@ -83,3 +83,21 @@ function completeStep(i) {
     goToResult(true); // true = completed
   }
 }
+
+
+document.getElementById('btn-pause').addEventListener('click', () => {
+  paused = !paused; 
+  document.getElementById('btn-pause').textContent = paused ? '▶ Resume' : '⏸ Pause';
+});
+
+
+document.getElementById('btn-done').addEventListener('click', () => {
+  clearInterval(timerInterval);
+  goToResult(stepsDone.every(Boolean));
+});
+
+
+function quitGame() {
+  clearInterval(timerInterval); 
+  window.location.href = 'recipes.html';
+}
