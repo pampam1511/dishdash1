@@ -29,12 +29,21 @@ function buildList(recipes) {
     card.className = "recipe-card";
 
     card.innerHTML = `
-      <div class="recipe-name">${r.name}</div>
-      <div class="recipe-meta">⏱ ${r.time}s · ${r.steps.length} steps</div>
-      <span class="diff-badge diff-${r.difficulty}">${r.difficulty}</span>
-      <span class="recipe-arrow">→</span>
-    `;
-
+    <div class="recipe-name">${r.name}</div>
+    <div class="recipe-meta">⏱ ${r.time}s · ${r.steps.length} steps</div>
+    <span class="diff-badge diff-${r.difficulty}">${r.difficulty}</span>
+    ${
+      r.ingredients
+        ? `
+      <div class="recipe-ingredients">
+        <div class="ingredients-title">Ingredients</div>
+        <div class="ingredients-text">${r.ingredients}</div>
+      </div>
+  `
+        : ""
+    }
+  <span class="recipe-arrow">→</span>
+`;
     card.onclick = () => {
       localStorage.setItem("selectedRecipe", JSON.stringify(r));
       window.location.href = "game.html";
