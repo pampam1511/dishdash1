@@ -12,7 +12,12 @@ Cusine:
 <img width="1872" height="917" alt="Screenshot 2026-05-11 231956" src="https://github.com/user-attachments/assets/49a205cd-ee34-44ee-8be4-2f2546e46fa6" />
 
 Recipe page: 
+<img width="1874" height="916" alt="image" src="https://github.com/user-attachments/assets/83abbee9-1e51-4765-a16c-6b33afeca74c" />
+
+Timer:
 <img width="1874" height="922" alt="Screenshot 2026-05-11 232043" src="https://github.com/user-attachments/assets/b787eeda-ea80-4b85-bf8d-855720ccd1bf" />
+
+Done: 
 
 
 
