@@ -65,6 +65,14 @@ function updateProgress() {
 function renderSteps() {
   const list = document.getElementById("steps-list");
   list.innerHTML = "";
+  const ingredientsPanel = document.getElementById("ingredients-panel");
+  if (r.ingredients && ingredientsPanel) {
+    ingredientsPanel.innerHTML = `
+    <div class="ingredients-title">Ingredients</div>
+    <div class="ingredients-text">${recipe.ingredients}</div>
+  `;
+    ingredientsPanel.classList.remove("hidden");
+  }
 
   recipe.steps.forEach((step, i) => {
     const div = document.createElement("div");
