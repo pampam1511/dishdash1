@@ -63,3 +63,23 @@ function renderSteps() {
     list.appendChild(div);
   });
 }
+
+function completeStep(i) {
+  if (paused) return; 
+
+  const allPrev = stepsDone.slice(0, i).every(Boolean);
+  if (!allPrev || stepsDone[i]) return; 
+
+  stepsDone[i] = true;
+
+  score += timeLeft > recipe.time * 0.5 ? 150 : 100;
+  document.getElementById('score-display').textContent = score + ' pts';
+
+  renderSteps();
+  updateProgress();
+
+  if (stepsDone.every(Boolean)) {
+    clearInterval(timerInterval);
+    goToResult(true); // true = completed
+  }
+}
