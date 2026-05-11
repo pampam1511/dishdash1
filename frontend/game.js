@@ -39,3 +39,27 @@ function updateProgress(){
     document.getElementById('progress-fill').style.width= `${(done / total) * 100}%`;
     document.getElementById('progress-text').textContent = `${done}/${total}`;
 }
+
+
+function renderSteps() {
+  const list = document.getElementById('steps-list');
+  list.innerHTML = '';
+
+  recipe.steps.forEach((step, i) => {
+    const allPrev  = stepsDone.slice(0, i).every(Boolean);
+    const isActive = !stepsDone[i] && allPrev;
+
+    const div     = document.createElement('div');
+    div.className = 'step-item'
+      + (stepsDone[i] ? ' done'   : '')
+      + (isActive     ? ' active' : '');
+
+    div.innerHTML = `
+      <div class="step-num">${stepsDone[i] ? '✓' : i + 1}</div>
+      <div class="step-text">${step}</div>
+    `;
+
+    div.onclick = () => completeStep(i);
+    list.appendChild(div);
+  });
+}
