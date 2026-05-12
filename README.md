@@ -17,7 +17,11 @@ Recipe page:
 Timer:
 <img width="1874" height="922" alt="Screenshot 2026-05-11 232043" src="https://github.com/user-attachments/assets/b787eeda-ea80-4b85-bf8d-855720ccd1bf" />
 
-Done: 
+Good ending:
+<img width="1871" height="905" alt="Screenshot 2026-05-12 110955" src="https://github.com/user-attachments/assets/e63076da-91da-4b35-a68c-18abb2dd073a" />
+
+
+
 
 
 
